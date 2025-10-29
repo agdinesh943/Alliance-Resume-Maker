@@ -1,0 +1,65 @@
+# Netlify Configuration for Uni-Form Resume Builder
+
+[build]
+  # Build command - builds the Vite production app
+  command = "npm run build"
+  # Publish directory - Vite outputs to dist/
+  publish = "dist"
+
+[build.environment]
+  # Node version for build
+  NODE_VERSION = "20"
+
+# Redirects for SPA (Single Page Application) routing
+# Handle all non-API routes for client-side routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Proxy API requests to backend
+[[redirects]]
+  from = "/api/*"
+  to = "https://resume-backend-kzg9.onrender.com/:splat"
+  status = 200
+  force = true
+
+# Security headers for all files
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Cache static assets (JS, CSS, etc.) for 1 year
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache favicon and images for 1 month
+[[headers]]
+  for = "/favicon/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+# No cache for HTML files to ensure updates are served immediately
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Cache robots.txt for 1 day
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+

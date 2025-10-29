@@ -1,0 +1,101 @@
+/* Landing Page Specific Styles with Gold/Yellow Theme */
+
+/* Override theme colors for landing page only */
+.landing-page {
+    /* Gold/Yellow color scheme */
+    --background: 0 0% 5%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Gold primary colors */
+    --primary: 45 93% 47%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 45 93% 47%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 98%;
+
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 45 93% 47%;
+
+    --radius: 0.75rem;
+
+    /* Gold gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(45, 93%, 47%), hsl(38, 92%, 50%));
+    --gradient-card: linear-gradient(135deg, hsl(0, 0%, 8%), hsl(0, 0%, 12%));
+    --gradient-hero: linear-gradient(180deg, hsl(0, 0%, 5%) 0%, hsl(0, 0%, 8%) 100%);
+
+    /* Gold shadows */
+    --shadow-glow: 0 0 40px hsla(45, 93%, 47%, 0.15);
+    --shadow-card: 0 10px 30px -10px hsla(0, 0%, 0%, 0.5);
+}
+
+/* Apply gold theme to all elements within landing page */
+.landing-page * {
+    color: var(--foreground);
+}
+
+/* Success and Destructive colors for landing page */
+.landing-page .text-success {
+    color: hsl(142, 76%, 36%);
+}
+
+.landing-page .text-destructive {
+    color: hsl(0, 72%, 51%);
+}
+
+/* Primary (Gold) accents for interactive elements */
+.landing-page .border-primary {
+    border-color: hsl(45, 93%, 47%);
+}
+
+.landing-page .bg-primary {
+    background-color: hsl(45, 93%, 47%);
+}
+
+.landing-page .text-primary {
+    color: hsl(45, 93%, 47%);
+}
+
+/* Gold gradient text */
+.landing-page .gold-gradient {
+    background: linear-gradient(135deg, hsl(45, 93%, 47%), hsl(38, 92%, 50%));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Animated gradient for Job Master text */
+.landing-page .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease infinite;
+}
+
+@keyframes gradient-shift {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
